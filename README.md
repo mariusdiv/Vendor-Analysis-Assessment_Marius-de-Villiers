@@ -66,15 +66,18 @@ make help
 | Total Spend | $7,887,360 |
 | DB Match Rate | 100% (386/386) |
 | QA Pass Rate | 6/6 checks + duplicates |
-| Estimated Savings | $1,274,130 (16.2%) |
+| Estimated Savings | $710K-$1,274,130 (9.0%-16.2%) |
 
-## Top 3 Opportunities
+## Top 3 Opportunities + Conditional Opportunity
 
 | Opportunity | Current Spend | Savings | Method |
 |-------------|---------------|---------|--------|
-| Salesforce Renegotiation | $3,117,226 | ~$623K (20%) | License audit + enterprise deal |
+| Salesforce Renegotiation* | $3,117,226 | ~$623K (20%) | License audit + enterprise deal |
 | Office Consolidation | ~$1M (26 vendors) | ~$358K (35%) | Consolidate to 3 providers |
 | Discretionary + PS | $154K + PS overlap | ~$293K | Terminate + volume consolidation |
+| **Conditional:** SaaS Rationalization | ~$397K (47 vendors) | ~$60K-$100K (15-25%) | Consolidate non-SF SaaS tools |
+
+*\*Salesforce caveat: We lack visibility into why Salesforce represents 39.5% of vendor spend. If this concentration is operationally justified (revenue-generating platform, core business tool), the $623K savings estimate must be revised. Stakeholder interviews are required before execution. If Salesforce spend is protected, Conditional Opportunity 4 provides an alternative savings path.*
 
 ## Design Choices
 
@@ -94,10 +97,11 @@ make help
 - Croatian vendors (D.O.O., J.D.O.O., D.D.) researched individually
 
 ### Savings Methodology
-- Salesforce: 20% reduction via license audit (industry standard for CRM over-provisioning)
+- Salesforce: 20% reduction via license audit (industry standard for CRM over-provisioning) — *contingent on dependency assessment; see caveat*
 - Facilities: 35% via consolidation from 26 to 3 preferred providers
 - Terminations: 85% elimination of discretionary spend after stakeholder review
 - Professional Services: 12% volume discount through panel consolidation
+- Conditional SaaS Rationalization: 15-25% of non-Salesforce SaaS spend (applies if Salesforce spend is operationally justified)
 
 ## Artifacts to Review
 
@@ -118,7 +122,7 @@ make help
 | Accurate department classification | Pass | 386/386 valid departments, function-over-delivery-model rubric |
 | Specific vendor descriptions | Pass | 0 generic descriptions, 56 vague descriptions fixed |
 | Well-thought-out recommendations | Pass | 3-tier framework: Optimize/Consolidate/Terminate |
-| Real cost-saving opportunities | Pass | $1.27M total savings with specific methodologies |
+| Real cost-saving opportunities | Pass | $710K-$1.27M total savings with specific methodologies + Salesforce dependency caveat |
 | Claude Code methodology | Pass | 9 prompt logs + methodology doc |
 | Documented quality checks | Pass | 6/6 QA checks + duplicate detection + qa_report.md |
 | Executive memo formatting | Pass | Structured memo with $1B enterprise framing |

@@ -278,6 +278,19 @@ def write_opportunities(wb, vendor_data: list, stats: dict,
     r += 1
     ws2.cell(row=r, column=1).font = body_font
     ws2.cell(row=r, column=1).value = "Timeline: 6-8 weeks for audit, 3-6 months for full renegotiation cycle."
+    r += 1
+    caveat_font = Font(name="Arial", bold=True, size=10, color="C00000")
+    ws2.cell(row=r, column=1).font = caveat_font
+    ws2.cell(row=r, column=1).value = (
+        "IMPORTANT CAVEAT: We do not currently have sufficient information to determine why Salesforce "
+        "spend represents 39.5% of total vendor costs. If this concentration exists because Salesforce "
+        "is integral to revenue generation, core service delivery, or operational infrastructure "
+        "(e.g., the company resells Salesforce solutions or uses it as a primary business platform), "
+        "then aggressive cost reduction could directly harm the business. Stakeholder interviews with "
+        "business unit leaders must be conducted before executing this opportunity. "
+        "See Conditional Opportunity 4 below for an alternative savings path if Salesforce spend is "
+        "operationally justified."
+    )
     r += 2
 
     # Opportunity 2: Office Consolidation
@@ -338,11 +351,66 @@ def write_opportunities(wb, vendor_data: list, stats: dict,
     ).format(consol_savings)
     r += 2
 
+    # Opportunity 4: Conditional SaaS Rationalization
+    cond_font = Font(name="Arial", bold=True, size=11, color="7030A0")
+    non_sf_saas_spend = sum(
+        v["cost"] for v in vendor_data
+        if v["dept"] == "SaaS" and "salesforce" not in v["name"].lower()
+    )
+    non_sf_saas_count = len([
+        v for v in vendor_data
+        if v["dept"] == "SaaS" and "salesforce" not in v["name"].lower()
+    ])
+    non_sf_saas_savings_low = round(non_sf_saas_spend * 0.15)
+    non_sf_saas_savings_high = round(non_sf_saas_spend * 0.25)
+    conservative_total = office_savings + terminate_savings + consol_savings + non_sf_saas_savings_low
+
+    ws2.cell(row=r, column=1, value="CONDITIONAL OPPORTUNITY 4: SaaS Portfolio Rationalization (Pending Salesforce Assessment)").font = cond_font
+    ws2.cell(row=r, column=2, value=f"Est. Savings: ${non_sf_saas_savings_low:,}-${non_sf_saas_savings_high:,}/yr").font = Font(name="Arial", bold=True, size=12, color="7030A0")
+    r += 1
+    ws2.cell(row=r, column=1, value=f"Current Spend: ${non_sf_saas_spend:,.0f} across {non_sf_saas_count} non-Salesforce SaaS vendors").font = bold_font
+    r += 1
+    ws2.cell(row=r, column=1).font = body_font
+    ws2.cell(row=r, column=1).value = (
+        "This opportunity is conditional: it applies if the Salesforce dependency assessment (see Opportunity 1 caveat) "
+        "determines that Salesforce spend is operationally justified and cannot be materially reduced. "
+        "We currently lack visibility into whether the 39.5% vendor spend concentration on Salesforce reflects "
+        "over-provisioning or a legitimate operational dependency. This information must be gathered before "
+        "committing to either Opportunity 1 or this alternative."
+    )
+    r += 1
+    ws2.cell(row=r, column=1).font = body_font
+    ws2.cell(row=r, column=1).value = (
+        "If Salesforce spend is confirmed as operationally critical, the savings focus shifts to rationalizing "
+        f"the remaining {non_sf_saas_count} non-Salesforce SaaS vendors (${non_sf_saas_spend:,.0f}). "
+        "This includes consolidating overlapping tools, eliminating underutilized licenses, "
+        "and negotiating volume-based enterprise agreements across the broader SaaS portfolio."
+    )
+    r += 1
+    ws2.cell(row=r, column=1).font = body_font
+    ws2.cell(row=r, column=1).value = (
+        "Required Actions Before Execution: (1) Conduct stakeholder interviews with business unit leaders to determine "
+        "Salesforce's role in revenue generation and service delivery, (2) Map Salesforce product usage across departments, "
+        "(3) Assess whether Salesforce spend is contractually locked or negotiable, "
+        "(4) Based on findings, execute either Opportunity 1 (if optimizable) or this Opportunity 4 (if operationally critical)."
+    )
+    r += 1
+    ws2.cell(row=r, column=1).font = body_font
+    ws2.cell(row=r, column=1).value = "Timeline: 4-6 weeks for Salesforce dependency assessment, then 3-6 months for SaaS rationalization execution."
+    r += 2
+
     # Summary
     ws2.cell(row=r, column=1, value="TOTAL ESTIMATED ANNUAL SAVINGS").font = Font(name="Arial", bold=True, size=12, color="1F4E79")
     ws2.cell(row=r, column=2, value=f"${total_savings:,}/yr").font = Font(name="Arial", bold=True, size=14, color="1F4E79")
     r += 1
     ws2.cell(row=r, column=1, value=f"This represents {total_savings/stats['total_spend']*100:.1f}% of total vendor spend of ${stats['total_spend']:,.0f}").font = Font(name="Arial", italic=True, size=10, color="666666")
+    r += 1
+    ws2.cell(row=r, column=1).font = Font(name="Arial", italic=True, size=10, color="7030A0")
+    ws2.cell(row=r, column=1).value = (
+        f"Conservative scenario (if Salesforce spend is operationally critical): "
+        f"${conservative_total:,}/yr ({conservative_total/stats['total_spend']*100:.1f}% of total spend) "
+        f"by replacing Opportunity 1 savings with Conditional Opportunity 4."
+    )
 
     return {
         "sf_spend": sf_spend,
@@ -356,6 +424,11 @@ def write_opportunities(wb, vendor_data: list, stats: dict,
         "total_savings": total_savings,
         "fac_count": fac_count,
         "term_count": rec_counts.get("Terminate", 0),
+        "non_sf_saas_spend": non_sf_saas_spend,
+        "non_sf_saas_count": non_sf_saas_count,
+        "non_sf_saas_savings_low": non_sf_saas_savings_low,
+        "non_sf_saas_savings_high": non_sf_saas_savings_high,
+        "conservative_total": conservative_total,
     }
 
 
@@ -495,12 +568,14 @@ def write_executive_memo(wb, vendor_data: list, stats: dict,
 
     ws4.cell(row=r, column=1, value="EXECUTIVE SUMMARY").font = Font(name="Arial", bold=True, size=12, color="1F4E79")
     r += 1
+    conservative_total = savings["conservative_total"]
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
     ws4.cell(row=r, column=1).value = (
         f"Following a comprehensive analysis of {len(vendor_data)} active vendor relationships totaling "
         f"${stats['total_spend']:,.0f} in annual spend, I have identified three high-impact opportunities "
-        f"that could deliver estimated annual savings of ${total_savings:,}. "
-        f"The analysis reveals significant vendor fragmentation, a critical single-vendor concentration risk, "
+        f"plus one conditional opportunity that could deliver estimated annual savings of "
+        f"${conservative_total:,}-${total_savings:,} depending on the outcome of a Salesforce dependency assessment. "
+        f"The analysis reveals significant vendor fragmentation, a critical single-vendor concentration question, "
         f"and substantial discretionary spend that can be rationalized. "
         f"Beyond direct cost savings, this analysis establishes a vendor governance framework "
         f"that can be scaled across the full enterprise to drive sustained procurement efficiency."
@@ -511,8 +586,11 @@ def write_executive_memo(wb, vendor_data: list, stats: dict,
     r += 1
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
     ws4.cell(row=r, column=1).value = (
-        f"1. CONCENTRATION RISK: Salesforce represents ${sf_spend:,.0f} ({sf_spend/stats['total_spend']*100:.1f}% of total spend). "
-        f"This single-vendor dependency creates pricing leverage imbalance and operational risk."
+        f"1. CONCENTRATION QUESTION: Salesforce represents ${sf_spend:,.0f} ({sf_spend/stats['total_spend']*100:.1f}% of total spend). "
+        f"We do not currently have visibility into whether this concentration reflects over-provisioning "
+        f"or an operationally justified dependency (e.g., revenue-generating platform, core service delivery tool). "
+        f"A stakeholder assessment is required before determining if this represents a cost-reduction opportunity "
+        f"or a strategic investment that should be protected."
     )
     r += 1
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
@@ -586,12 +664,24 @@ def write_executive_memo(wb, vendor_data: list, stats: dict,
     r += 1
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
     ws4.cell(row=r, column=1).value = "Risk 4: Operational disruption during vendor transitions. Mitigation: Phase transitions with overlap periods; assign a dedicated project manager."
+    r += 1
+    ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
+    ws4.cell(row=r, column=1).value = (
+        "Risk 5: Salesforce spend may be operationally critical. If Salesforce is integral to revenue generation "
+        "or core service delivery, reducing spend could directly harm the business. Mitigation: Conduct stakeholder "
+        "interviews before executing Opportunity 1; if spend is justified, pivot to Conditional Opportunity 4 "
+        "(SaaS portfolio rationalization) for alternative savings."
+    )
     r += 2
 
     ws4.cell(row=r, column=1, value="EXPECTED OUTCOMES").font = Font(name="Arial", bold=True, size=12, color="1F4E79")
     r += 1
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
-    ws4.cell(row=r, column=1).value = f"- Total estimated annual savings: ${total_savings:,} ({total_savings/stats['total_spend']*100:.1f}% of total spend)"
+    ws4.cell(row=r, column=1).value = (
+        f"- Total estimated annual savings: ${conservative_total:,}-${total_savings:,} "
+        f"({conservative_total/stats['total_spend']*100:.1f}%-{total_savings/stats['total_spend']*100:.1f}% of total spend), "
+        f"depending on outcome of Salesforce dependency assessment"
+    )
     r += 1
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
     consol_count = rec_counts.get("Consolidate", 0)
