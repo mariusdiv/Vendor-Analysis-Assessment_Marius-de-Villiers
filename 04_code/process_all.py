@@ -263,7 +263,7 @@ def write_opportunities(wb, vendor_data: list, stats: dict,
     ws2.cell(row=r, column=1).font = body_font
     ws2.cell(row=r, column=1).value = (
         "Salesforce represents the single largest vendor relationship at nearly 40% of total spend. "
-        "This extreme concentration creates both significant risk and optimization opportunity. "
+        "This concentration may represent both significant risk and optimization opportunity. "
         "A structured license audit typically reveals 15-25% of licenses are underutilized or dormant. "
         "Given the scale of this relationship, even modest optimization yields substantial absolute savings."
     )
@@ -346,9 +346,9 @@ def write_opportunities(wb, vendor_data: list, stats: dict,
     r += 1
     ws2.cell(row=r, column=1).font = body_font
     ws2.cell(row=r, column=1).value = (
-        "Additional savings of ${:,} from consolidating professional services, insurance, and finance vendors "
-        "through preferred supplier agreements and volume-based pricing."
-    ).format(consol_savings)
+        f"Additional savings of ${consol_savings:,} from consolidating professional services, insurance, and finance vendors "
+        f"through preferred supplier agreements and volume-based pricing."
+    )
     r += 2
 
     # Opportunity 4: Conditional SaaS Rationalization
@@ -575,7 +575,7 @@ def write_executive_memo(wb, vendor_data: list, stats: dict,
         f"${stats['total_spend']:,.0f} in annual spend, I have identified three high-impact opportunities "
         f"plus one conditional opportunity that could deliver estimated annual savings of "
         f"${conservative_total:,}-${total_savings:,} depending on the outcome of a Salesforce dependency assessment. "
-        f"The analysis reveals significant vendor fragmentation, a critical single-vendor concentration question, "
+        f"The analysis reveals significant vendor fragmentation, a single-vendor concentration question requiring assessment, "
         f"and substantial discretionary spend that can be rationalized. "
         f"Beyond direct cost savings, this analysis establishes a vendor governance framework "
         f"that can be scaled across the full enterprise to drive sustained procurement efficiency."
