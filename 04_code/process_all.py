@@ -617,6 +617,17 @@ def write_executive_memo(wb, vendor_data: list, stats: dict,
 
     ws4.cell(row=r, column=1, value="RECOMMENDED ACTIONS AND TIMELINE").font = Font(name="Arial", bold=True, size=12, color="1F4E79")
     r += 1
+    ws4.cell(row=r, column=1, value="Phase 0 - Salesforce Dependency Assessment (0-6 weeks):").font = Font(name="Arial", bold=True, size=10, color="2E75B6")
+    r += 1
+    ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
+    ws4.cell(row=r, column=1).value = "- Conduct stakeholder interviews with business unit leaders to understand why Salesforce represents 39.5% of vendor spend"
+    r += 1
+    ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
+    ws4.cell(row=r, column=1).value = "- Map Salesforce product usage across all departments to determine if it is a cost center (optimizable) or operational necessity"
+    r += 1
+    ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
+    ws4.cell(row=r, column=1).value = "- Based on findings, execute either Opportunity 1 (Salesforce optimization) or Conditional Opportunity 4 (SaaS rationalization)"
+    r += 2
     ws4.cell(row=r, column=1, value="Phase 1 - Quick Wins (0-3 months):").font = Font(name="Arial", bold=True, size=10, color="2E75B6")
     r += 1
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
@@ -691,7 +702,7 @@ def write_executive_memo(wb, vendor_data: list, stats: dict,
     ws4.cell(row=r, column=1).value = "- Improved procurement governance and spend visibility across all departments"
     r += 1
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
-    ws4.cell(row=r, column=1).value = "- Reduced single-vendor concentration risk through strategic diversification"
+    ws4.cell(row=r, column=1).value = "- Reduced single-vendor concentration through strategic diversification"
     r += 1
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
     ws4.cell(row=r, column=1).value = "- Scalable vendor governance methodology applicable across all business units and spend categories"

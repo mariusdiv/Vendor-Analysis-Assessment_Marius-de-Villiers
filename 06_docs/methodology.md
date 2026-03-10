@@ -55,21 +55,23 @@ Classification rules:
 4. Description quality: 0 generic descriptions (verified twice)
 5. Tab content: All 4 required tabs populated
 6. Spend integrity: Total reconciled to $7,887,360.40
-6. Top 10 spot check: Manual verification of highest-spend vendors
+7. Top 10 spot check: Manual verification of highest-spend vendors
 
 ## Step 7: Prompts Used
 All Claude Code prompts documented in 05_prompts/ directory (9 files).
 Each prompt file records the instruction given and actions taken.
 
 ## Key Findings
-- Salesforce represents 39.5% of total vendor spend ($3.1M) - CRM concentration risk
-- 26 facility vendors across 8 countries - fragmented office footprint
-- 77 vendors flagged for termination - discretionary spend leakage
-- 18 overlapping professional services engagements - consolidation opportunity
-- Total estimated savings: $1,274,130 (16.2% of total spend)
+- Salesforce represents 39.5% of total vendor spend ($3.1M) — concentration question flagged for stakeholder assessment (reason for concentration not yet understood)
+- 26 facility vendors across 8 countries — fragmented office footprint
+- 77 vendors flagged for termination — discretionary spend leakage
+- 18 overlapping professional services engagements — consolidation opportunity
+- Conditional Opportunity 4: SaaS portfolio rationalization (~$60K-$100K) if Salesforce spend cannot be materially reduced
+- Total estimated savings: $710K-$1,274,130 (9.0%-16.2% of total spend), depending on outcome of Salesforce dependency assessment
 
 ## Limitations
 - Classification based on vendor name and spend only (no contracts or usage data)
 - Some Croatian/international vendors classified with limited public information
 - Savings estimates are directional; actual savings depend on contract terms
 - Stakeholder review recommended before implementing termination recommendations
+- Salesforce spend concentration (39.5%) requires stakeholder assessment — we lack visibility into whether this reflects over-provisioning or a deeper operational dependency; savings estimates are presented as a range to account for both scenarios

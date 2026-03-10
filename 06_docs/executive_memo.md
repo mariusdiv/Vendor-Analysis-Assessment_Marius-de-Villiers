@@ -58,7 +58,7 @@ the business rationale behind the Salesforce spend concentration before executio
 - Conduct stakeholder interviews with business unit leaders
 - Map Salesforce product usage across all departments
 - Determine whether Salesforce is a cost center (optimizable) or revenue driver (protect)
-- Based on findings, execute either Opportunity 1 or Conditional Opportunity 5
+- Based on findings, execute either Opportunity 1 or Conditional Opportunity 4
 
 ### Phase 1: Quick Wins (0-90 Days)
 - Conduct Salesforce license audit (identify unused seats)
@@ -86,7 +86,7 @@ the business rationale behind the Salesforce spend concentration before executio
 | Contract penalties for early termination | Legal review of break clauses before action |
 | Stakeholder resistance to vendor changes | Cross-functional alignment sessions |
 | Regional compliance requirements (8 countries) | Local legal review per jurisdiction |
-| Salesforce spend concentration is not yet understood — it may reflect a deeper operational need | Conduct stakeholder interviews before executing Opportunity 1; if spend cannot be reduced, pivot to Conditional Opportunity 5 (SaaS portfolio rationalization) |
+| Salesforce spend concentration is not yet understood — it may reflect a deeper operational need | Conduct stakeholder interviews before executing Opportunity 1; if spend cannot be reduced, pivot to Conditional Opportunity 4 (SaaS portfolio rationalization) |
 
 ---
 

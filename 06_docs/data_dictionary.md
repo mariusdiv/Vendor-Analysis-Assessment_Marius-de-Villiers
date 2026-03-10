@@ -43,7 +43,7 @@ This document defines all datasets produced during the vendor analysis pipeline.
 | Suggestions | string | Recommendation | Consolidate / Terminate / Optimize costs |
 
 ### Tab: Top 3 Opportunities
-Structured analysis of three highest-impact cost reduction opportunities.
+Structured analysis of three highest-impact cost reduction opportunities plus one conditional opportunity (SaaS portfolio rationalization, pending Salesforce assessment).
 
 ### Tab: Methodology
 Documentation of tools, approach, and quality assurance steps.
