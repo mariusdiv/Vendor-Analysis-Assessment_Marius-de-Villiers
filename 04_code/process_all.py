@@ -283,13 +283,13 @@ def write_opportunities(wb, vendor_data: list, stats: dict,
     ws2.cell(row=r, column=1).font = caveat_font
     ws2.cell(row=r, column=1).value = (
         "IMPORTANT CAVEAT: We do not currently have sufficient information to determine why Salesforce "
-        "spend represents 39.5% of total vendor costs. If this concentration exists because Salesforce "
-        "is integral to revenue generation, core service delivery, or operational infrastructure "
-        "(e.g., the company resells Salesforce solutions or uses it as a primary business platform), "
-        "then aggressive cost reduction could directly harm the business. Stakeholder interviews with "
-        "business unit leaders must be conducted before executing this opportunity. "
-        "See Conditional Opportunity 4 below for an alternative savings path if Salesforce spend is "
-        "operationally justified."
+        "spend represents 39.5% of total vendor costs. It is possible that this concentration reflects "
+        "a deeper operational dependency — for example, Salesforce may play a role in revenue generation, "
+        "service delivery, or core business operations. If that were the case, aggressive cost reduction "
+        "could risk harming the business. We recommend stakeholder interviews with business unit leaders "
+        "to understand the nature of this spend before executing this opportunity. "
+        "See Conditional Opportunity 4 below for an alternative savings path should the assessment reveal "
+        "that Salesforce spend cannot be materially reduced."
     )
     r += 2
 
@@ -373,15 +373,15 @@ def write_opportunities(wb, vendor_data: list, stats: dict,
     ws2.cell(row=r, column=1).font = body_font
     ws2.cell(row=r, column=1).value = (
         "This opportunity is conditional: it applies if the Salesforce dependency assessment (see Opportunity 1 caveat) "
-        "determines that Salesforce spend is operationally justified and cannot be materially reduced. "
+        "reveals that Salesforce spend cannot be materially reduced. "
         "We currently lack visibility into whether the 39.5% vendor spend concentration on Salesforce reflects "
-        "over-provisioning or a legitimate operational dependency. This information must be gathered before "
+        "over-provisioning or a deeper operational need. This information must be gathered before "
         "committing to either Opportunity 1 or this alternative."
     )
     r += 1
     ws2.cell(row=r, column=1).font = body_font
     ws2.cell(row=r, column=1).value = (
-        "If Salesforce spend is confirmed as operationally critical, the savings focus shifts to rationalizing "
+        "If the assessment indicates that Salesforce spend cannot be materially reduced, the savings focus shifts to rationalizing "
         f"the remaining {non_sf_saas_count} non-Salesforce SaaS vendors (${non_sf_saas_spend:,.0f}). "
         "This includes consolidating overlapping tools, eliminating underutilized licenses, "
         "and negotiating volume-based enterprise agreements across the broader SaaS portfolio."
@@ -390,9 +390,9 @@ def write_opportunities(wb, vendor_data: list, stats: dict,
     ws2.cell(row=r, column=1).font = body_font
     ws2.cell(row=r, column=1).value = (
         "Required Actions Before Execution: (1) Conduct stakeholder interviews with business unit leaders to determine "
-        "Salesforce's role in revenue generation and service delivery, (2) Map Salesforce product usage across departments, "
+        "the business rationale behind the Salesforce spend concentration, (2) Map Salesforce product usage across departments, "
         "(3) Assess whether Salesforce spend is contractually locked or negotiable, "
-        "(4) Based on findings, execute either Opportunity 1 (if optimizable) or this Opportunity 4 (if operationally critical)."
+        "(4) Based on findings, execute either Opportunity 1 (if spend is optimizable) or this Opportunity 4 (if spend cannot be reduced)."
     )
     r += 1
     ws2.cell(row=r, column=1).font = body_font
@@ -407,7 +407,7 @@ def write_opportunities(wb, vendor_data: list, stats: dict,
     r += 1
     ws2.cell(row=r, column=1).font = Font(name="Arial", italic=True, size=10, color="7030A0")
     ws2.cell(row=r, column=1).value = (
-        f"Conservative scenario (if Salesforce spend is operationally critical): "
+        f"Conservative scenario (if Salesforce spend cannot be materially reduced): "
         f"${conservative_total:,}/yr ({conservative_total/stats['total_spend']*100:.1f}% of total spend) "
         f"by replacing Opportunity 1 savings with Conditional Opportunity 4."
     )
@@ -587,10 +587,10 @@ def write_executive_memo(wb, vendor_data: list, stats: dict,
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
     ws4.cell(row=r, column=1).value = (
         f"1. CONCENTRATION QUESTION: Salesforce represents ${sf_spend:,.0f} ({sf_spend/stats['total_spend']*100:.1f}% of total spend). "
-        f"We do not currently have visibility into whether this concentration reflects over-provisioning "
-        f"or an operationally justified dependency (e.g., revenue-generating platform, core service delivery tool). "
-        f"A stakeholder assessment is required before determining if this represents a cost-reduction opportunity "
-        f"or a strategic investment that should be protected."
+        f"We do not currently have visibility into why this concentration is so high. It may reflect "
+        f"over-provisioning, or it could indicate a deeper operational dependency. "
+        f"A stakeholder assessment is required before determining whether this represents a cost-reduction "
+        f"opportunity or spend that should be protected."
     )
     r += 1
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
@@ -667,10 +667,10 @@ def write_executive_memo(wb, vendor_data: list, stats: dict,
     r += 1
     ws4.cell(row=r, column=1).font = Font(name="Arial", size=10)
     ws4.cell(row=r, column=1).value = (
-        "Risk 5: Salesforce spend may be operationally critical. If Salesforce is integral to revenue generation "
-        "or core service delivery, reducing spend could directly harm the business. Mitigation: Conduct stakeholder "
-        "interviews before executing Opportunity 1; if spend is justified, pivot to Conditional Opportunity 4 "
-        "(SaaS portfolio rationalization) for alternative savings."
+        "Risk 5: Salesforce spend concentration is not yet understood. It is possible that the 39.5% concentration "
+        "reflects a deeper operational need, in which case reducing spend could have unintended consequences. "
+        "Mitigation: Conduct stakeholder interviews to understand the business rationale before executing "
+        "Opportunity 1; if spend cannot be reduced, pivot to Conditional Opportunity 4 (SaaS portfolio rationalization)."
     )
     r += 2
 

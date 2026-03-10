@@ -77,7 +77,7 @@ make help
 | Discretionary + PS | $154K + PS overlap | ~$293K | Terminate + volume consolidation |
 | **Conditional:** SaaS Rationalization | ~$397K (47 vendors) | ~$60K-$100K (15-25%) | Consolidate non-SF SaaS tools |
 
-*\*Salesforce caveat: We lack visibility into why Salesforce represents 39.5% of vendor spend. If this concentration is operationally justified (revenue-generating platform, core business tool), the $623K savings estimate must be revised. Stakeholder interviews are required before execution. If Salesforce spend is protected, Conditional Opportunity 4 provides an alternative savings path.*
+*\*Salesforce caveat: We lack visibility into why Salesforce represents 39.5% of vendor spend. It is possible that this concentration reflects a deeper operational need, in which case the $623K savings estimate would need to be revised. Stakeholder interviews are required before execution to understand the business rationale. If it turns out that Salesforce spend cannot be materially reduced, Conditional Opportunity 4 provides an alternative savings path.*
 
 ## Design Choices
 
@@ -101,7 +101,7 @@ make help
 - Facilities: 35% via consolidation from 26 to 3 preferred providers
 - Terminations: 85% elimination of discretionary spend after stakeholder review
 - Professional Services: 12% volume discount through panel consolidation
-- Conditional SaaS Rationalization: 15-25% of non-Salesforce SaaS spend (applies if Salesforce spend is operationally justified)
+- Conditional SaaS Rationalization: 15-25% of non-Salesforce SaaS spend (applies if Salesforce spend cannot be materially reduced)
 
 ## Artifacts to Review
 

@@ -23,12 +23,11 @@ strengthens operating leverage ahead of integration milestones.
 
 ### 1. CRM Concentration Question
 Salesforce accounts for $3.1M (39.5% of total vendor spend). We do not currently have
-visibility into whether this concentration reflects over-provisioning or an operationally
-justified dependency (e.g., revenue-generating platform, core service delivery tool). If
-the spend is optimizable, a 20% reduction through license audit and enterprise renegotiation
-yields ~$623K in annual savings. However, if Salesforce is integral to how the business
-generates revenue or delivers services, this optimization must be revised. A stakeholder
-assessment is required before committing to this opportunity.
+visibility into why this concentration is so high. It may reflect over-provisioning, or it
+could indicate a deeper operational dependency. If the spend is optimizable, a 20% reduction
+through license audit and enterprise renegotiation yields ~$623K in annual savings. However,
+if it turns out that this spend cannot be materially reduced, a different savings approach
+is needed. A stakeholder assessment is required before committing to this opportunity.
 
 ### 2. Fragmented Office Footprint
 26 facility vendors across 8 countries represent ~$1M in spend. Consolidation from 26 to
@@ -43,13 +42,13 @@ stakeholder review yields ~$131K in immediate savings.
 categories. Volume-based consolidation yields 12% savings (~$62K annually).
 
 ### 5. Conditional: SaaS Portfolio Rationalization (Pending Salesforce Assessment)
-If the Salesforce dependency assessment determines that Salesforce spend is operationally
-justified and cannot be materially reduced, the savings focus shifts to rationalizing the
+If the Salesforce dependency assessment reveals that Salesforce spend cannot be materially
+reduced, the savings focus shifts to rationalizing the
 remaining ~47 non-Salesforce SaaS vendors (~$397K in spend). This includes consolidating
 overlapping tools, eliminating underutilized licenses, and negotiating volume-based
 enterprise agreements. Estimated savings: $60K-$100K (15-25% of non-Salesforce SaaS spend).
 This opportunity requires stakeholder interviews with business unit leaders to determine
-Salesforce's role in revenue generation before execution.
+the business rationale behind the Salesforce spend concentration before execution.
 
 ---
 
@@ -70,7 +69,7 @@ Salesforce's role in revenue generation before execution.
 - Renegotiate Salesforce enterprise agreement (if assessment supports it)
 - Launch preferred provider program for facilities
 - Standardize consulting panel agreements
-- If Salesforce is operationally critical, begin non-Salesforce SaaS rationalization
+- If Salesforce spend cannot be reduced, begin non-Salesforce SaaS rationalization
 
 ### Phase 3: Ongoing Optimization (180-365 Days)
 - Monitor vendor performance against SLAs
@@ -87,7 +86,7 @@ Salesforce's role in revenue generation before execution.
 | Contract penalties for early termination | Legal review of break clauses before action |
 | Stakeholder resistance to vendor changes | Cross-functional alignment sessions |
 | Regional compliance requirements (8 countries) | Local legal review per jurisdiction |
-| Salesforce spend may be operationally critical | Conduct stakeholder interviews before executing Opportunity 1; if spend is justified, pivot to Conditional Opportunity 5 (SaaS portfolio rationalization) |
+| Salesforce spend concentration is not yet understood — it may reflect a deeper operational need | Conduct stakeholder interviews before executing Opportunity 1; if spend cannot be reduced, pivot to Conditional Opportunity 5 (SaaS portfolio rationalization) |
 
 ---
 
