@@ -45,7 +45,8 @@ Include these sections in order:
 7. KEY FINDINGS (60-80 words)
    - Total vendors, total spend, department distribution summary
    - Recommendation breakdown: N Optimize, N Consolidate, N Terminate
-   - Concentration risk: top vendor as % of total spend
+   - Concentration question: top vendor as % of total spend (flagged for
+     stakeholder assessment — reason for concentration not yet understood)
 
 Keep language factual. No marketing tone. Every claim must be verifiable
 from the project artefacts.

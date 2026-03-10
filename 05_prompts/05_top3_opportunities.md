@@ -32,12 +32,27 @@ Selection criteria for the 3 opportunities (rank by impact):
   3. Feasibility (does not require major org restructuring)
 
 FOLLOW UP:
-Salesforce represents $3.1M of the $7.89M total spend (39.5%). This
-concentration is a red flag. Research enterprise CRM license optimization:
+Salesforce represents $3.1M of the $7.89M total spend (39.5%). We do not
+have visibility into why this concentration is so high — it may reflect
+over-provisioning, or it could indicate a deeper operational dependency.
+Research enterprise CRM license optimization:
   - What do Gartner/Forrester benchmarks say about CRM spend as % of revenue?
   - Typical savings from license audit (unused seats, duplicate licenses)?
   - Enterprise Agreement renegotiation leverage points?
 Recalculate Opportunity #1 with these benchmarks and cite sources.
+
+IMPORTANT: Add a caveat to Opportunity #1 explicitly stating that we lack
+information on why this concentration exists. If it turns out that
+Salesforce plays a role in revenue generation or core operations, the
+savings estimate must be revised. Recommend stakeholder interviews before
+executing.
+
+Add a CONDITIONAL OPPORTUNITY 4: SaaS Portfolio Rationalization. This is
+an alternative savings path if Salesforce spend cannot be materially
+reduced. Rationalize the remaining ~47 non-Salesforce SaaS vendors
+(~$397K). Estimated savings: 15-25% (~$60K-$100K). Show two total savings
+scenarios: full ($1.27M if Salesforce is optimizable) and conservative
+(~$710K if Salesforce spend is protected).
 
 Also examine the 26 office/facilities vendors across multiple countries.
 What would consolidation from 26 vendors to 3 preferred providers save?

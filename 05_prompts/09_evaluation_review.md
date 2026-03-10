@@ -25,12 +25,19 @@ CRITERION 3: RECOMMENDATION QUALITY
   - Low-value, non-essential vendors are Terminate
   Pass: logical consistency across all 386 recommendations
 
-CRITERION 4: TOP 3 OPPORTUNITIES
+CRITERION 4: TOP 3 OPPORTUNITIES + CONDITIONAL OPPORTUNITY
   - Identifies real, high-impact cost reduction opportunities
   - Dollar amounts are derived from actual data (not invented)
   - Savings percentages cite industry benchmarks
   - Action plans are specific and implementable within stated timelines
-  Pass: all 3 opportunities have verifiable math and credible benchmarks
+  - Salesforce caveat: explicitly states we lack visibility into why the
+    39.5% concentration exists; does NOT assert it is operationally critical,
+    only that this is possible and must be investigated
+  - Conditional Opportunity 4 provides alternative savings path if Salesforce
+    spend cannot be reduced
+  - Total savings shown as a range (conservative and full scenarios)
+  Pass: all 3+1 opportunities have verifiable math, credible benchmarks,
+  and appropriately hedged Salesforce language
 
 CRITERION 5: METHODOLOGY DOCUMENTATION
   - Describes how Claude Code CLI was leveraged at each pipeline step
@@ -43,8 +50,9 @@ CRITERION 6: EXECUTIVE MEMO FORMAT
   - Proper business memo format (TO/FROM/DATE/RE)
   - 400-500 words
   - Dollar impacts meaningful for a $1B+ enterprise
-  - Risk mitigation table with 4 rows
-  - 3-phase implementation timeline
+  - Risk mitigation table with 5 rows (including Salesforce concentration caveat)
+  - 4-phase implementation timeline (Phase 0: Salesforce assessment)
+  - Savings presented as a range ($710K-$1.27M), not a single figure
   Pass: correct format, within word limit, all required sections present
 
 CRITERION 7: DATA INTEGRITY
